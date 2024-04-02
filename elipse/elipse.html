@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elipse</title>
+    <link rel="shortcut icon" href="circulo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="circurlo.css">
+    <link rel="stylesheet" href="numeros.css">
+
+    
+</head>
+<body>
+
+    <form class="formulario" action="" id="coordForm">
+        <label for="foco1">Foco 1 del elipse (X, Y):</label><br>
+        <input type="text" name="foco1x" id="foco1x" placeholder="X">
+        <input type="text" name="foco1y" id="foco1y" placeholder="Y">
+        <br><br>
+        <label for="foco2">Foco 2 del elipse (X, Y):</label><br>
+        <input type="text" name="foco2x" id="foco2x" placeholder="X">
+        <input type="text" name="foco2y" id="foco2y" placeholder="Y">
+        <br><br>
+        <label for="a">Longitud del semieje mayor (a):</label><br>
+        <input type="text" name="a" id="a" placeholder="a">
+        <br><br>
+        <label for="b">Longitud del semieje menor (b):</label><br>
+        <input type="text" name="b" id="b" placeholder="b">
+        <br><br>
+        <button type="submit" style="background-color: rgb(137, 216, 137);" >Crear</button><br>
+        <button type="button" onclick="cerrar()" style="background-color: rgb(216, 113, 113);">Borrar</button>
+    </form>
+
+
+    
+
+    <div class="canva" id="canvas-container">
+        <canvas id="canvas" width="800px" height="800px" style="background-color: rgb(146, 218, 194);" >
+            
+        </canvas>
+        <!-- <article class="lineax1"></article>
+        <article class="lineax2"></article>
+        <article class="lineax3"></article>
+        <article class="lineax4"></article>
+        <article class="lineax5"></article>
+        <article class="lineax6"></article>
+        <article class="lineax7"></article>
+        <article class="lineax8"></article>
+        <article class="lineax9"></article>
+        <article class="lineax10"></article>
+        <article class="lineax11"></article>
+        <article class="lineax12"></article>
+        <article class="lineax13"></article>
+        <article class="lineax14"></article>
+        <article class="lineax15"></article>
+        <article class="lineax16"></article>
+        <article class="lineax17"></article>
+        <article class="lineax18"></article>
+        <article class="lineax19"></article>
+        <article class="lineax20"></article>
+        <article class="lineax21"></article>
+        <article class="lineax22"></article>
+        <article class="lineax23"></article>
+        <article class="lineax24"></article>
+        <article class="lineax25"></article>
+        <article class="lineax26"></article>
+        <article class="lineax27"></article>
+        <article class="lineax28"></article>
+        <article class="lineax29"></article>
+        <article class="lineax30"></article>
+        <article class="lineax31"></article>
+        <article class="lineax32"></article>
+        <article class="lineax33"></article>
+        <article class="lineax34"></article>
+        <article class="lineax35"></article>
+        <article class="lineax36"></article>
+        <article class="lineax37"></article>
+        <article class="lineax38"></article>
+        <article class="lineax39"></article>
+        <article class="lineax40"></article> 
+
+        
+        
+        
+        <article class="lineay1"></article>
+        <article class="lineay2"></article>
+        <article class="lineay3"></article>
+        <article class="lineay4"></article>
+        <article class="lineay5"></article>
+        <article class="lineay6"></article>
+        <article class="lineay7"></article>
+        <article class="lineay8"></article>
+        <article class="lineay9"></article>
+        <article class="lineay10"></article>
+        <article class="lineay11"></article>
+        <article class="lineay12"></article>
+        <article class="lineay13"></article>
+        <article class="lineay14"></article>
+        <article class="lineay15"></article>
+        <article class="lineay16"></article>
+        <article class="lineay17"></article>
+        <article class="lineay18"></article>
+        <article class="lineay19"></article>
+        <article class="lineay20"></article>
+        <article class="lineay21"></article>
+        <article class="lineay22"></article>
+        <article class="lineay23"></article>
+        <article class="lineay24"></article>
+        <article class="lineay25"></article>
+        <article class="lineay26"></article>
+        <article class="lineay27"></article>
+        <article class="lineay28"></article>
+        <article class="lineay29"></article>
+        <article class="lineay30"></article>
+        <article class="lineay31"></article>
+        <article class="lineay32"></article>
+        <article class="lineay33"></article>
+        <article class="lineay34"></article> -->
+        
+        
+    </div>
+    
+    <!-- <div class="numeros">
+        <div class="numeros_x">
+            <span class="n2">10</span>
+            <span class="n3">20</span>
+            <span class="n4">30</span>
+            <span class="n5">40</span>
+            <span class="n6">50</span>
+            <span class="n7">60</span>
+            <span class="n8">70</span>
+            <span class="n9">80</span>
+            <span class="n10">90</span>
+            <span class="n11">100</span>
+            <span class="n12">110</span>
+            <span class="n13">120</span>
+            <span class="n14">130</span>
+            <span class="n15">140</span>
+            <span class="n16">150</span>
+            <span class="n17">160</span>
+            <span class="n18">170</span>
+            <span class="n19">180</span>
+            <span class="n20">190</span>
+            <span class="n12">200</span>
+            <span class="n12">210</span>
+            <span class="n12">220</span>
+            <span class="n12">230</span>
+            <span class="n12">240</span>
+            <span class="n12">250</span>
+            <span class="n12">260</span>
+            <span class="n12">270</span>
+            <span class="n12">280</span>
+            <span class="n12">290</span>
+            <span class="n12">300</span>
+            <span class="n30">310</span>
+            <span class="n30">320</span>
+            <span class="n31">330</span>
+            <span class="n31">340</span>
+            <span class="n30">350</span>
+            <span class="n31">360</span>
+            <span class="n31">370</span>
+            <span class="n30">380</span>
+            <span class="n30">390</span>
+            
+        </div> 
+        <div class="numeros_y">
+            <span class="n1">10</span>
+            <span class="n2">20</span>
+            <span class="n3">30</span>
+            <span class="n4">40</span>
+            <span class="n5">50</span>
+            <span class="n6">60</span>
+            <span class="n7">70</span>
+            <span class="n8">80</span>
+            <span class="n9">90</span>
+            <span class="n10">100</span>
+            <span class="n11">110</span>
+            <span class="n12">120</span>
+            <span class="n13">130</span>
+            <span class="n14">140</span>
+            <span class="n15">150</span>
+            <span class="n16">160</span>
+            <span class="n17">170</span>
+            <span class="n18">180</span>
+            <span class="n19">190</span>
+            <span class="n20">200</span>
+            <span class="n1">210</span>
+            <span class="n1">220</span>
+            <span class="n1">230</span>
+            <span class="n1">240</span>
+            <span class="n1">250</span>
+            <span class="n1">260</span>
+            <span class="n1">270</span>
+            <span class="n1">280</span>
+            <span class="n1">290</span>
+            <span class="n1">300</span>
+            <span class="n31">310</span>
+            <span class="n31">320</span>
+            <span class="n31">330</span>
+            <span class="n31">340</span>
+            <span class="n31">350</span>
+            <span class="n31">360</span>
+            <span class="n31">370</span>
+            <span class="n31">380</span>
+            <span class="n31">390</span>
+        </div>
+    </div> -->
+
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>

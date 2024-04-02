@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Elipse</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <form id="ellipseForm">
+        <label for="centerX">Centro X:</label>
+        <input type="number" id="centerX" required>
+        <label for="centerY">Centro Y:</label>
+        <input type="number" id="centerY" required>
+        <br>
+        <label for="focus1X">Foco 1 X:</label>
+        <input type="number" id="focus1X" required>
+        <label for="focus1Y">Foco 1 Y:</label>
+        <input type="number" id="focus1Y" required>
+        <br>
+        <label for="focus2X">Foco 2 X:</label>
+        <input type="number" id="focus2X" required>
+        <label for="focus2Y">Foco 2 Y:</label>
+        <input type="number" id="focus2Y" required>
+        <br>
+        <button type="submit">Dibujar Elipse</button>
+    </form>
+    <canvas id="ellipseCanvas" width="400" height="400"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>

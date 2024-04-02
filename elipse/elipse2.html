@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elipse</title>
+</head>
+<body>
+    <form class="formulario" action="" id="coordForm">
+        <label for="centrox">Centro de la elipse (X, Y):</label><br>
+        <input type="text" name="centrox" id="centrox" placeholder="X">
+        <input type="text" name="centroy" id="centroy" placeholder="Y">
+        <br><br>
+        <label for="foco1">Foco 1 del elipse (X, Y):</label><br>
+        <input type="text" name="foco1x" id="foco1x" placeholder="X">
+        <input type="text" name="foco1y" id="foco1y" placeholder="Y">
+        <br><br>
+        <label for="foco2">Foco 2 del elipse (X, Y):</label><br>
+        <input type="text" name="foco2x" id="foco2x" placeholder="X">
+        <input type="text" name="foco2y" id="foco2y" placeholder="Y">
+        <br><br>
+        <label for="vertex1">Vértice 1 (X, Y):</label><br>
+        <input type="text" name="vertex1x" id="vertex1x" placeholder="X">
+        <input type="text" name="vertex1y" id="vertex1y" placeholder="Y">
+        <br><br>
+        <label for="vertex2">Vértice 2 (X, Y):</label><br>
+        <input type="text" name="vertex2x" id="vertex2x" placeholder="X">
+        <input type="text" name="vertex2y" id="vertex2y" placeholder="Y">
+        <br><br>
+        <button type="submit" style="background-color: rgb(137, 216, 137);" >Crear</button><br>
+        <button type="button" onclick="borrar()" style="background-color: rgb(216, 113, 113);">Borrar</button>
+    </form>
+
+    <canvas id="canvas" width="400" height="400" style="border:1px solid black;"></canvas>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+
+            document.getElementById('coordForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const centrox = parseFloat(document.getElementById('centrox').value);
+                const centroy = parseFloat(document.getElementById('centroy').value);
+                const foco1x = parseFloat(document.getElementById('foco1x').value);
+                const foco1y = parseFloat(document.getElementById('foco1y').value);
+                const foco2x = parseFloat(document.getElementById('foco2x').value);
+                const foco2y = parseFloat(document.getElementById('foco2y').value);
+                const vertex1x = parseFloat(document.getElementById('vertex1x').value);
+                const vertex1y = parseFloat(document.getElementById('vertex1y').value);
+                const vertex2x = parseFloat(document.getElementById('vertex2x').value);
+                const vertex2y = parseFloat(document.getElementById('vertex2y').value);
+                
+                drawEllipse(centrox, centroy, foco1x, foco1y, foco2x, foco2y, vertex1x, vertex1y, vertex2x, vertex2y);
+            });
+
+            function drawEllipse(centrox, centroy, foco1x, foco1y, foco2x, foco2y, vertex1x, vertex1y, vertex2x, vertex2y) {
+                // Limpiar el lienzo
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+                // Cambiar la escala (puedes ajustar estos valores según tus necesidades)
+                const scaleX = 10;
+                const scaleY = 10;
+            
+                ctx.fillStyle = 'rgb(255, 0, 0)'; // Color rojo para el punto
+                
+                // Dibujar centro
+                ctx.beginPath();
+                ctx.arc(centrox * scaleX, canvas.height - centroy * scaleY, 3, 0, 2 * Math.PI);
+                ctx.fill();
+
+                // Dibujar focos
+                ctx.beginPath();
+                ctx.arc(foco1x * scaleX, canvas.height - foco1y * scaleY, 3, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(foco2x * scaleX, canvas.height - foco2y * scaleY, 3, 0, 2 * Math.PI);
+                ctx.fill();
+
+                // Dibujar vértices
+                ctx.beginPath();
+                ctx.arc(vertex1x * scaleX, canvas.height - vertex1y * scaleY, 3, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(vertex2x * scaleX, canvas.height - vertex2y * scaleY, 3, 0, 2 * Math.PI);
+                ctx.fill();
+
+                // Dibujar la elipse
+                const a = Math.sqrt(Math.pow(foco1x - centrox, 2) + Math.pow(foco1y - centroy, 2));
+                const b = Math.sqrt(Math.pow(foco2x - centrox, 2) + Math.pow(foco2y - centroy, 2));
+
+                const angle = Math.atan2(vertex2y - vertex1y, vertex2x - vertex1x);
+                const xDiff = (vertex1x + vertex2x) / 2 - centrox;
+                const yDiff = (vertex1y + vertex2y) / 2 - centroy;
+
+                ctx.strokeStyle = 'rgb(0, 0, 0)';
+                ctx.beginPath();
+                ctx.ellipse(centrox * scaleX, canvas.height - centroy * scaleY, a * scaleX, b * scaleY, angle, 0, 2 * Math.PI);
+                ctx.stroke();
+            }
+        });
+
+        function borrar() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    </script>
+</body>
+</html>
+
